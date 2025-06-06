@@ -1,57 +1,33 @@
-# Shortcuts
-alias copyssh="pbcopy < $HOME/.ssh/id_ed25519.pub"
-alias reloadshell="omz reload"
-alias reloaddns="dscacheutil -flushcache && sudo killall -HUP mDNSResponder"
-alias ll="/opt/homebrew/opt/coreutils/libexec/gnubin/ls -AhlFo --color --group-directories-first"
-alias phpstorm='open -a /Applications/PhpStorm.app "`pwd`"'
-alias shrug="echo '¯\_(ツ)_/¯' | pbcopy"
-alias compile="commit 'compile'"
-alias timestamp="date +%s"
-alias version="commit 'version'"
+#Sound Effects
+alias bruh="afplay ~/Music/sound_effects/Bruh.mp3"
+alias fart="afplay ~/Music/sound_effects/fart-with-reverb.mp3"
+alias thomas="afplay ~/Music/sound_effects/Thomas.mp3"
+alias violin="afplay ~/Music/sound_effects/tf_nemesis.mp3"
+alias phub="afplay ~/Music/sound_effects/phub.mp3"
+alias error="afplay ~/Music/sound_effects/erro.mp3"
+alias startup="afplay ~/Music/sound_effects/windows-startup.mp3"
+alias errors="afplay ~/Music/sound_effects/errorx10.mp3"
+alias fuckedup="afplay ~/Music/sound_effects/fuckedup.mp3"
+alias shutdown="afplay ~/Music/sound_effects/shutdown.mp3"
+alias mexicancringe="afplay ~/Music/sound_effects/oh-no-cringe.mp3"
+alias cringe="afplay ~/Music/sound_effects/cringe.mp3"
+alias phubsee="afplay ~/Music/sound_effects/see-you-again-meme.mp3"
+alias uwu="afplay ~/Music/sound_effects/uwu.mp3"
 
-# Directories
-alias dotfiles="cd $DOTFILES"
-alias library="cd $HOME/Library"
-alias projects="cd $HOME/Code"
-alias sites="cd $HOME/Herd"
+# Tailscale
+alias tailscale="/Applications/Tailscale.app/Contents/MacOS/Tailscale"
 
-# Laravel
-alias a="herd php artisan"
-alias fresh="herd php artisan migrate:fresh --seed"
-alias tinker="herd php artisan tinker"
-alias seed="herd php artisan db:seed"
-alias serve="herd php artisan serve"
+# Repository fuzzy search
+function cda { cd ~/Development/applications/$(ls -1 ~/Development/applications/ | fzf -1 -q "$1") }
+function cdr { cd ~/Development/ansible/roles/$(ls -1 ~/Development/ansible/roles/ | fzf -1 -q "$1") }
+function cdp { cd ~/Development/ansible/playbooks/$(ls -1 ~/Development/ansible/playbooks/ | fzf -1 -q "$1") }
+function cdi { cd ~/Development/infrastructure/$(ls -1 ~/Development/infrastructure/ | fzf -1 -q "$1") }
+function cdc { cd ~/Development/containers/$(ls -1 ~/Development/containers/ | fzf -1 -q "$1") }
+function cdk { cd ~/Development/kubernetes/$(ls -1 ~/Development/kubernetes/ | fzf -1 -q "$1") }
+function cdt { cd ~/Development/infrastructure/$(ls -1 ~/Development/infrastructure/ | fzf -1 -q "$1")/terraform }
+function cdtm { cd ~/Development/terraform/$(ls -1 ~/Development/terraform/ | fzf -1 -q "$1") }
+function cdm { cd ~/Development/microservices/$(ls -1 ~/Development/microservices/ | fzf -1 -q "$1") }
 
-# PHP
-alias cfresh="rm -rf vendor/ composer.lock && composer i"
-alias composer="herd composer"
-alias php="herd php"
-
-# JS
-alias nfresh="rm -rf node_modules/ package-lock.json && npm install"
-alias watch="npm run dev"
-
-# Docker
-alias docker-composer="docker-compose"
-
-# SQL Server
-alias mssql="docker run -e ACCEPT_EULA=Y -e SA_PASSWORD=LaravelWow1986! -p 1433:1433 mcr.microsoft.com/mssql/server:2017-latest"
-
-# Git
-alias gs="git status"
-alias gb="git branch"
-alias gc="git checkout"
-alias gl="git log --oneline --decorate --color"
-alias amend="git add . && git commit --amend --no-edit"
-alias commit="git add . && git commit -m"
-alias diff="git diff"
-alias force="git push --force-with-lease"
-alias nuke="git clean -df && git reset --hard"
-alias pop="git stash pop"
-alias prune="git fetch --prune"
-alias pull="git pull"
-alias push="git push"
-alias resolve="git add . && git commit --no-edit"
-alias stash="git stash -u"
-alias unstage="git restore --staged ."
-alias wip="commit wip"
+# Extras
+alias vihosts="sudo nvim /etc/hosts"
+alias mogge="brew update && brew upgrade && brew cleanup && reposync --purge"
